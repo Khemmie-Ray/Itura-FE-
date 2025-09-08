@@ -9,7 +9,7 @@ const MobExplore = () => {
       <div className="w-[100px] h-[100px] bg-linear-to-b from-gradientYellow blur-[80px] to-gradientRed  rounded-full absolute left-10 top-0 "></div>
       <div className="w-[80%] mb-4 ml-auto">
         <Image
-          src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604680/icon-group_xb0kjr.svg"
+          src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346064/icon-group_xb0kjr_qze6zn.png"
           alt="Explore page background image"
           width={300}
           height={300}
@@ -22,7 +22,7 @@ const MobExplore = () => {
           className={`p-3 border border-white/20 flex items-center justify-center w-[50px] h-[45px] rounded-lg mb-auto mr-4 shadow-lg -rotate-12 ${themeColor}`}
         >
           <Image
-            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604684/marklogo_o2ba0x.svg"
+            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346064/marklogo_o2ba0x_amnzzt.png"
             alt=""
             width={20}
             height={20}
@@ -36,7 +36,7 @@ const MobExplore = () => {
           className={`p-3 border border-white/20 flex items-center justify-center w-[50px] h-[45px] rounded-lg mt-auto mr-4 shadow-lg rotate-12 ${themeColor}`}
         >
           <Image
-            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604683/mark_roa5ys.svg"
+            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346064/mark_d7c7op_ry2dlo.png"
             alt=""
             width={20}
             height={20}

@@ -1,17 +1,13 @@
 import React from "react";
-import Image from "next/image";
 import { GoDotFill } from "react-icons/go";
 
 const Support = () => {
   return (
     <div className="w-[90%] mx-auto flex lg:justify-between md:justify-between justify-center items-center flex-col lg:flex-row md:flex-row my-20 lg:text-left md:text-left text-center">
       <div className="lg:w-[48%] md:w-[48%] w-[100%] mb-6">
-        <Image
+        <img
           src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604690/support_h8e57d.svg"
           alt=""
-          width={300}
-          height={300}
-          priority
           className="w-[100%]"
         />
       </div>

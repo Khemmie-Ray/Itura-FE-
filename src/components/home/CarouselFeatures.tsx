@@ -8,8 +8,8 @@ const CarouselFeatures = () => {
       id: 1,
       title: "Remix Your Mind, Reimagine Your Art",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604884/carousel3_a6phci.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604817/icon1_tdhgww.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346055/carousel3_a6phci-1_f4lspc.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346059/icon1_tdhgww_mncdal.png",
       details:
         "Play around with thoughts and feelings, then turn them into something beautiful and new!",
     },
@@ -17,8 +17,8 @@ const CarouselFeatures = () => {
       id: 2,
       title: "Find Your Flow with Custom Sound Journeys",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604874/carousel2_ushvpx.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604817/icon2_cv9wy0.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346050/carousel2_ushvpx_qalhow.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346060/icon2_cv9wy0_vetsta.png",
       details:
         "Chill out, focus up, or spark ideas with sounds made just for your mood.",
     },
@@ -26,8 +26,8 @@ const CarouselFeatures = () => {
       id: 3,
       title: "Connect & Share Securely",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604877/carousel5_yfxb4v.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604818/icon5_ndktig.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346061/carousel5_yfxb4v_sj1hiv.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346060/icon3_ssmemm_awjpuh.png",
       details:
         "Play around with thoughts and feelings, then turn them into something beautiful and new!",
     },
@@ -35,8 +35,8 @@ const CarouselFeatures = () => {
       id: 4,
       title: "Turn Feelings into Art",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604883/carousel6_i02lfz.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604818/icon4_udcsqh.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346052/carousel6_i02lfz_tcwpln.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346060/icon4_udcsqh_qenxzo.png",
       details:
         "Let your emotions lead the way with drawing, collages, and photo art. Your feelings, your masterpiece!",
     },
@@ -44,8 +44,8 @@ const CarouselFeatures = () => {
       id: 5,
       title: "Journal Guidance for Your Creative Well-being",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604868/carousel1_y3lt8o.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604818/icon5_ndktig.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346037/carousel1_y3lt8o_nd8igr.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346061/icon5_ndktig_c6uxsx.png",
       details:
         "Chat with your smart AI buddy for cool insights, fresh prompts, and personalised wellness tips.",
     },
@@ -53,8 +53,8 @@ const CarouselFeatures = () => {
       id: 6,
       title: "See Your Feelings in Colour",
       image:
-        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604886/carousel4_c2ryyh.svg",
-      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604819/icon6_y0sdba.svg",
+        "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346059/carousel4_c2ryyh_n6yz9h.png",
+      icon: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346062/icon6_y0sdba_cb9wsw.png",
       details:
         "Chill out, focus up, or spark ideas with sounds made just for your mood.",
     },

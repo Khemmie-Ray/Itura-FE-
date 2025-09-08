@@ -7,7 +7,7 @@ const Partner = () => {
       <div className="flex lg:justify-between md:justify-between justify-center bg-darkBg rounded-[44px] items-center pt-10 flex-col lg:flex-row md:flex-row text-center lg:text-left md:text-left">
         <div className="w-[80%] lg:w-[30%] md:w-[45%] mb-4">
           <Image
-            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604681/col_krfobe.svg"
+            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346058/col_krfobe_j1voyu.png" 
             alt=""
             width={300}
             height={300}
@@ -18,7 +18,7 @@ const Partner = () => {
         <div className="w-[100%] lg:w-[62%] md:w-[52%] pb-8 mb-4">
           <div className="flex items-center lg:my-4 justify-center lg:justify-start">
             <Image
-              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604683/logo_jpexvw.svg"
+              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346064/logo_jpexvw_n5awr6.png"
               alt="Itura logo"
               width={50}
               height={30}
@@ -26,7 +26,7 @@ const Partner = () => {
             />
             <p className="mx-4">X</p>
             <Image
-              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/starknet-logo_nunzk9.svg"
+              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346067/starknet-logo_nunzk9_oqsqin.png"
               alt="Starknet logo"
               width={120}
               height={30}

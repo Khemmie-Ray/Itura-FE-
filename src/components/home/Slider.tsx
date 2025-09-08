@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const slides = [
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604858/art1_hsg8hb.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604854/art2_yzhlw3.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604878/art3_yf89wk.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604856/art4_ezbt2v.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604858/art5_egndyu.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604871/art6_l6hfps.svg",
-  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604876/art7_rbu366.svg",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346030/art1_hsg8hb_gdl22f.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346035/art2_yzhlw3_n4omm1.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346027/art3_yf89wk_qkqajm.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346028/art4_ezbt2v_yj6qkw.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346029/art5_egndyu_kn0fy5.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346030/art6_l6hfps_wa4bem.png",
+  "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346030/art7_rbu366_fftb5l.png",
 ];
 
 const total = slides.length;

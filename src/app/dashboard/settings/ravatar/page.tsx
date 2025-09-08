@@ -6,7 +6,7 @@ const Ravatar = () => {
     <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8">
       <div className="w-[100%] lg:w-[40%] md:w-[40%] mx-auto">
         <Image
-          src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar-logo_gs3g6n.svg"
+          src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346067/ravatar-logo_gs3g6n_fcewun.png"
           alt="ravatar  user image"
           width={70}
           height={70}
