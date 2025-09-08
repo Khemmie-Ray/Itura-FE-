@@ -11,6 +11,7 @@ const Partner = () => {
             alt=""
             width={300}
             height={300}
+            priority
             className="rounded-bl-[44px] w-[100%]"
           />
         </div>

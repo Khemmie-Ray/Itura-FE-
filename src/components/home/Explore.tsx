@@ -15,6 +15,7 @@ const Explore = () => {
             alt="Explore page background image"
             width={500}
             height={500}
+            priority
             className=" w-[80%] mx-auto"
           />
         </div>

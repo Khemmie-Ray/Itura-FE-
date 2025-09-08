@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa";
 const DemoCard = () => {
    
   return (
-    <div className={`w-[90%] lg:w-[60%] md:w-[60%] mx-auto mt-10 rounded-4xl p-8 flex justify-between flex-col lg:flex-row md:flex-row bg-[#080514]/40 border border-white/20 rounded-2xl`}>
+    <div className={`w-[90%] lg:w-[60%] md:w-[60%] mx-auto mt-10 rounded-4xl p-8 flex justify-between flex-col lg:flex-row md:flex-row bg-[#080514]/40 border border-white/20 rounded-[44px]`}>
       <div className="w-[100%] lg:w-[38%] md:w-[38%] bg-white/50 rounded-xl flex justify-center items-center h-[150px] lg:h-auto md:h-auto my-3">
         <FaPlay />
       </div>

@@ -107,6 +107,7 @@ const CarouselFeatures = () => {
               alt="Active feature"
               width={300}
               height={300}
+              priority
               className="w-[100%] rounded-xl"
             />
           </div>

@@ -57,6 +57,7 @@ const Slider = () => {
                   alt={`art-${actualIndex}`}
                   width={400}
                   height={400}
+                  priority
                   className="w-[200px] h-[300px] object-cover rounded-[30px] shadow-md"
                 />
               </motion.div>

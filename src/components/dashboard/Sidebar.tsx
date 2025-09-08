@@ -10,15 +10,14 @@ import { usePathname } from "next/navigation";
 import ProtectedRoute from "./ProtectedRoutes";
 
 const Sidebar = () => {
-  const themeColor = "bg-white/15 border-white/20";
   const currentPath = usePathname();
  
   const isActive = (path:string) =>
-    currentPath === path ? "bg-white/10 rounded-[10px] border border-white/10 shadow-lg p-2" : "";
+    currentPath === path ? "bg-white/5 rounded-[10px] border border-white/10 shadow-lg p-2" : "";
 
   return (
     <div
-      className={`w-[20%] text-white p-8 py-12 h-[100vh] hidden lg:flex md:flex flex-col border-r border-white/10 overflow-y-scroll lg:max-h-[982px] md:max-h-[960px] no-scrollbar ${themeColor}`}
+      className="w-[20%] text-white p-8 py-12 h-[100vh] hidden lg:flex md:flex flex-col border-r border-white/10 overflow-y-scroll lg:max-h-[982px] md:max-h-[960px] no-scrollbar bg-[#080514]"
     >
       <Link href="/">
         <Image

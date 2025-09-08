@@ -13,6 +13,7 @@ const MobExplore = () => {
           alt="Explore page background image"
           width={300}
           height={300}
+          priority
           className=" w-[80%] mx-auto"
         />
       </div>

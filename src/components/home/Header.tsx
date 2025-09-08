@@ -43,16 +43,14 @@ const Header = () => {
               How it Works
             </Link>
             <Link href="">
-              Forum
-            </Link>
-            <Link href="">
               Blog
             </Link>
             <a href="mailto:info@itura.org">Contact</a>
           </nav>
           <Link
             href="/dashboard"
-            className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3"
+            className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3" 
+            prefetch={true}
           >
             Launch the app
           </Link>
@@ -74,7 +72,6 @@ const Header = () => {
           <nav className="w-[40%] flex justify-between items-center">
             <Link href="#feature">Features</Link>
             <Link href="">How it Works</Link>
-            <Link href="">Forum</Link>
             <Link href="">Blog</Link>
             <a href="mailto:info@itura.org">Contact</a>
           </nav>
@@ -82,6 +79,7 @@ const Header = () => {
             <Link
               href="/dashboard"
               className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3"
+              prefetch={true}
             >
               Launch the app
             </Link>
@@ -118,9 +116,6 @@ const Header = () => {
                 How it Works
               </Link>
               <Link href="" className="mb-4">
-                Forum
-              </Link>
-              <Link href="" className="mb-4">
                 Blog
               </Link>
               <a href="mailto:info@itura.org" className="cursor-pointer mb-4">
@@ -130,6 +125,7 @@ const Header = () => {
             <Link
               href="/dashboard"
               className="p-3 bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white"
+              prefetch={true}
             >
               Launch the app
             </Link>
@@ -167,9 +163,6 @@ const Header = () => {
                   How it Works
                 </Link>
                 <Link href="" className="mb-4">
-                  Forum
-                </Link>
-                <Link href="" className="mb-4">
                   Blog
                 </Link>
                 <a href="mailto:info@itura.org" className="cursor-pointer mb-4">
@@ -179,6 +172,7 @@ const Header = () => {
               <Link
                 href="/dashboard"
                 className="p-3 bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white"
+                prefetch={true}
               >
                 Launch the app
               </Link>
