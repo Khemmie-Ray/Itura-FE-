@@ -22,10 +22,8 @@ interface StarknetContextType {
   token_addr: `0x${string}`;
   address: string | undefined;
   status: 'disconnected' | 'connected' | 'connecting' | 'reconnecting';
-  handleClearSession: () => Promise<void>;
   setAddress: (address: string | undefined) => void;
   username: string | undefined;
-  handleConnect: (connector: Connector) => Promise<void>;
 }
 
 export const StarknetContext = createContext<StarknetContextType>(
@@ -62,38 +60,7 @@ export const StarknetContextProvider = ({ children }: StarknetProviderProps) => 
     setLocalAddress(address);
   }, [account, address]);
 
-  // Optionally get username if connected via Cartridge
-  useEffect(() => {
-    const controller = connectors.find((c) => c.id === 'cartridge');
-
-    if (controller && address && 'username' in controller) {
-      (controller as { username?: () => Promise<string> })
-        .username?.()
-        .then((n) => setUsername(n));
-    }
-  }, [connectors, address]);
-
-  const handleConnect = async (connector: Connector) => {
-    try {
-      await connect({ connector });
-    } catch (err) {
-      toast.error(`Connection failed: ${err}`);
-    }
-  };
-
-  const handleClearSession = async () => {
-    try {
-      disconnect();
-      setLocalAccount(undefined);
-      setLocalAddress(undefined);
-      setUsername(undefined);
-      router.push('/');
-      toast.success('Wallet Disconnected Successfully');
-    } catch (err) {
-      toast.error(`Error disconnecting: ${err}`);
-    }
-  };
-
+ 
   return (
     <StarknetContext.Provider
       value={{
@@ -106,10 +73,8 @@ export const StarknetContextProvider = ({ children }: StarknetProviderProps) => 
         token_addr,
         address: localAddress,
         status,
-        handleClearSession,
         setAddress: setLocalAddress,
         username,
-        handleConnect,
       }}
     >
       {children}

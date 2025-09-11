@@ -3,17 +3,14 @@
 import { useContext, useEffect, useState } from "react";
 import { StarknetContext } from "@/contexts/Usercontext";
 import { useAccount, useConnect } from '@starknet-react/core'
-import {ControllerConnector} from '@cartridge/connector'
 import { Dialog, DialogPanel } from "@headlessui/react";
 import Image from "next/image";
 
 
 const ConnectWallet = () => {
-  const { handleConnect } = useContext(StarknetContext);
   const {  connectors } = useConnect();
   // const { disconnect } = useDisconnect()
   const { address } = useAccount()
-  const controller = connectors[0] as ControllerConnector
   const [username, setUsername] = useState<string>()
   const [isOpen, setIsOpen] = useState(false);
   console.log(connectors, username)
@@ -21,10 +18,10 @@ const ConnectWallet = () => {
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
-  useEffect(() => {
-    if (!address) return
-    controller.username()?.then((n) => setUsername(n))
-  }, [address, controller])
+  // useEffect(() => {
+  //   if (!address) return
+  //   controller.username()?.then((n) => setUsername(n))
+  // }, [address, controller])
  
  
   return ( 
@@ -57,10 +54,10 @@ const ConnectWallet = () => {
            <div
              key={connector.id}
              className="bg-white/10 hover:bg-white/20 border border-white/10 rounded-[21px] cursor-pointer px-4 py-2 text-white flex items-center w-full mb-4 transition capitalize"
-             onClick={() => {
-               handleConnect(connector)
-               close();
-             }} 
+            //  onClick={() => {
+            //    handleConnect(connector)
+            //    close();
+            //  }} 
            >
              <div className="w-[40px] h-[40px] rounded-full bg-white/5 border border-white/10 flex justify-center items-center p-2 mr-4">
                <img

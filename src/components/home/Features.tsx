@@ -16,13 +16,13 @@ const Features = () => {
   const data:Data[] = [
     {
       id: 1,
-      image: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604819/img-1_wuj6aw.svg",
+      image: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757584505/Frame_ufc0zk.png",
       title: " A Doorway.",
       text: " Helping you reflect, express, and find balance.",
     },
     {
       id: 2,
-      image: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604817/feat2_zx1cc2.svg",
+      image: "https://res.cloudinary.com/dqw6qvymf/image/upload/v1757584504/Frame_1261152897_vchthy.png",
       title: "A Safe Space.",
       text: "Chat with Itura to gain insights.",
     },

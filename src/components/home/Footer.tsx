@@ -6,6 +6,7 @@ import { CgFacebook } from "react-icons/cg";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { RiTwitterXFill } from "react-icons/ri";
 import { PiYoutubeLogoFill } from "react-icons/pi";
+import { FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,27 +39,27 @@ const Footer = () => {
                     <Link href="/" className="mb-2">
                       Press
                     </Link>
-                    <Link href="/" className="mb-2">
+                    <a href="https://chat.whatsapp.com/D4uxMIWkZ2mBqtHmG0CEJ2?mode=ems_copy_c" className="mb-2" target="blsnk">
                       Community
-                    </Link>
+                    </a>
                   </div>
                   <div className="flex flex-col w-[100%] lg:w-[48%] md:w-[48%] mb-4">
                     <p className="font-bold text-[18px] mb-5">Community</p>
                     <Link href="/" className="mb-2">
                       Event
                     </Link>
-                    <Link href="/" className="mb-2">
+                    <a href="https://paragraph.com/@itura" className="mb-2"target="blank" >
                       Blog
-                    </Link>
+                    </a>
                     <Link href="/" className="mb-2">
                       Forum
                     </Link>
                     <Link href="/" className="mb-2">
                       Podcast
                     </Link>
-                    <Link href="/" className="mb-2">
+                    <a href="https://t.me/+MzACixf4BI81YTVk" className="mb-2" target="blank">
                       Telegram
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="flex flex-col w-[100%] lg:w-[32%] md:w-[32%] mb-4">
@@ -99,8 +100,13 @@ const Footer = () => {
               </a>
             </div>
             <div className="p-3 bg-white rounded-full text-black mr-4">
-            <a href="#">
+            <a href="https://www.instagram.com/ituraorg?igsh=MThxaTk1bG8xM211bw==" target="blank">
             <AiOutlineInstagram />
+              </a>
+            </div>
+            <div className="p-3 bg-white rounded-full text-black mr-4">
+            <a href="https://tiktok.com/@itura__ng" target="blank">
+            <FaTiktok />
               </a>
             </div>
             <div className="p-3 bg-white rounded-full text-black mr-4">
@@ -109,7 +115,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="p-3 bg-white rounded-full text-black">
-            <a href="#">
+            <a href="http://www.youtube.com/@Itura_org" target="blank">
             <PiYoutubeLogoFill />
               </a>
             </div>
