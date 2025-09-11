@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import featureAnimation from "@/constants/feature.json";
 
 const Features = () => {
-  const bgClass = "bg-white/10";
+  const bgClass = "bg-white/5";
 
   interface Data {
     id: number;
