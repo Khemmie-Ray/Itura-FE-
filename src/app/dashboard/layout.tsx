@@ -3,12 +3,12 @@
 import React from "react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import MobileSidebar from "@/components/dashboard/MobileSidebar"
-import ConnectWallet from "@/components/ConnectWallet";
-import { useContext } from "react";
-import { StarknetContext } from "@/contexts/Usercontext";
+// import ConnectWallet from "@/components/ConnectWallet";
+// import { useContext } from "react";
+// import { StarknetContext } from "@/contexts/Usercontext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { status } = useContext(StarknetContext);
+  // const { status } = useContext(StarknetContext);
 
   return (
     <div className="flex justify-between relative lg:flex-row md:flex-row flex-col">
@@ -19,9 +19,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <MobileSidebar />
       </div>
           <div className="lg:w-[706px] md:w-[706px] w-[200px]  lg:h-[353px] md:h-[300px] h-[100px] bg-gradient-to-b from-gradientYellow to-gradientRed lg:blur-[315px] md:blur-[280px] blur-[50px] rounded-bl-full rounded-br-full absolute left-1/2 top-0 transform -translate-x-1/2 z-10"></div>
-          <div className="ml-auto mr-12 z-20">
+          {/* <div className="ml-auto mr-12 z-20">
           {status !== "connected" ? <ConnectWallet /> : ""}
-          </div>
+          </div> */}
           {children}
       </div>
     </div>
