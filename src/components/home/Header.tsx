@@ -58,7 +58,7 @@ const Header = () => {
       </div>
       {scrolled && (
         <div
-          className={`lg:flex md:flex hidden w-[100%] justify-between items-center  px-10 fixed top-0 z-10  py-6  text-white text-[14px] bg-[#030A04]`}
+          className={`lg:flex md:flex hidden w-[100%] justify-between items-center  px-10 fixed top-0 z-20  py-6  text-white text-[14px] bg-[#030A04]`}
         >
           <Link href="/">
             <Image

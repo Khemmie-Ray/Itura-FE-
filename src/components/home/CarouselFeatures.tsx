@@ -70,7 +70,6 @@ const CarouselFeatures = () => {
   }, []);
 
   return (
-    // <Element name="feature">
     <>
       <div className="w-[90%] mx-auto lg:my-40 md:my-30 my-10 hidden lg:block md:block">
         <div className="flex text-center justify-center items-center mb-12">
@@ -168,7 +167,6 @@ const CarouselFeatures = () => {
         ))}
       </div>
       </>
-    // </Element>
   );
 };
 
