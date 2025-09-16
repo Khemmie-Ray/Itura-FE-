@@ -2,9 +2,8 @@ import { PiWaveformDuotone } from "react-icons/pi";
 import { MdClose } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import { TbSend2 } from "react-icons/tb";
-import markImg from "../../assets/marklogo.svg";
-import ravatar from "../../assets/avatar.svg";
-import { NavLink } from "react-router-dom";
+import Image from "next/image";
+import Link from "next/link";
 import { ImageMessage, MusicMessage, TextMessage } from "../shared/interface";
 
 type Messages = TextMessage | ImageMessage | MusicMessage;
@@ -51,11 +50,23 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
   const bubbleAlign = isUser ? "items-end text-right" : "items-start text-left";
   const avatar = isUser ? (
     <div className={`${themeColor} rounded-full border p-2 ml-3`}>
-      <img src={ravatar} alt="" className="w-[30px] h-[30px]" />
+      <Image
+        src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346067/ravatar_zs1bzd_jmltwf.png"
+        alt=""
+        width={30}
+        height={30}
+        className="w-[30px] h-[30px]"
+      />
     </div>
   ) : (
     <div className={`${themeColor} rounded-full border p-2 mr-3 `}>
-      <img src={markImg} alt="" className="w-[30px] h-[30px]" />
+      <Image
+        src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346064/marklogo_o2ba0x_amnzzt.png"
+        alt=""
+        width={30}
+        height={30}
+        className="w-[30px] h-[30px]"
+      />
     </div>
   );
 
@@ -82,12 +93,12 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
             />
             <div className="flex justify-between items-center p-3">
               <p className="text-[14px]">{message.content.alt}</p>
-              <NavLink
-                to="/dashboard/aichats/1"
+              <Link
+                href="/dashboard"
                 className={`text-darkBg dark:text-white rounded-full px-4 py-3 text-[14px] border  shadow-lg ${themeColor}`}
               >
                 Open Studio
-              </NavLink>
+              </Link>
             </div>
           </div>
         )}
