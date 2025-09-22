@@ -2,7 +2,7 @@ import React from "react";
 import { FiCamera, FiFolderMinus } from "react-icons/fi";
 import { CiImageOn } from "react-icons/ci";
 import { MdArrowUpward } from "react-icons/md";
-import ProtectedRoute from "@/components/dashboard/ProtectedRoutes";
+import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
 // import ChatRes from "@/components/dashboard/ChatRes";
 
 const Journal = () => {

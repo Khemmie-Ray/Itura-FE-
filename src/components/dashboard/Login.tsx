@@ -1,39 +1,91 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import { CavosAuth } from "cavos-service-sdk";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
+import { SignInWithGoogle } from "cavos-service-sdk";
+import { SignInWithApple } from "cavos-service-sdk";
+import { toast } from "sonner";
 
-const Login = ({ switchToSignup, close }: { switchToSignup: () => void; close: () => void }) => {
+const cavosAuth = new CavosAuth(
+  "sepolia",
+  process.env.NEXT_PUBLIC_CAVOS_APP_ID!
+);
+
+const Login = ({
+  switchToSignup,
+  close,
+}: {
+  switchToSignup: () => void;
+  close: () => void;
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const GoogleAuth = () => {
+    return (
+      <SignInWithGoogle
+        appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
+        network="sepolia"
+        finalRedirectUri="https://yourapp.com/auth/callback"
+      />
+    );
+  };
+
+  const AppleAuth = () => {
+    return (
+      <SignInWithApple
+        appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
+        network="sepolia"
+        finalRedirectUri="https://yourapp.com/auth/callback"
+      />
+    );
+  };
+
+  const handleLogin = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const result = await cavosAuth.signIn(
+        email,
+        password,
+        process.env.NEXT_PUBLIC_CAVOS_ORG_SECRET!
+      );
 
-      const data = await res.json();
-      if (!res.ok) {
-        alert(data.error || "Login failed");
-        return;
+      toast.success(`${result.message}`);
+      console.log(result);
+
+      const accessToken = result.data.authData.accessToken;
+      const refreshToken = result.data.authData.refreshToken;
+
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+    } catch (error: any) {
+      let errorMessage = "Login failed";
+      if (error?.message) {
+        const match = error.message.match(/\{.*\}/); 
+        if (match) {
+          try {
+            const parsed = JSON.parse(match[0]);
+            errorMessage = parsed.error || errorMessage; 
+          } catch {
+            errorMessage = error.message;
+          }
+        } else {
+          errorMessage = error.message;
+        }
       }
 
-      console.log("Login success:", data);
-      close();
-    } catch (err) {
-      console.error(err);
-      alert("Unexpected error");
-    } finally {
-      setLoading(false);
+      toast.error(`Login failed: ${errorMessage}`);
     }
+
+    setLoading(false);
+    setEmail("")
+    setPassword("")
+    close()
   };
 
   return (
@@ -66,14 +118,20 @@ const Login = ({ switchToSignup, close }: { switchToSignup: () => void; close: (
       <button
         type="submit"
         disabled={loading}
-        className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3 px-6 font-medium disabled:opacity-50"
+        className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3 mb-4 px-6 font-medium disabled:opacity-50"
       >
         {loading ? "Logging in..." : "Log In"}
       </button>
-
+      <GoogleAuth />
+      <div className="mb-3"></div>
+      <AppleAuth />
       <p className="my-3 text-[12px] text-center">
-        Don’t have an account?{" "}
-        <button type="button" onClick={switchToSignup} className="text-orange hover:underline">
+        Don&apos;t have an account?{" "}
+        <button
+          type="button"
+          onClick={switchToSignup}
+          className="text-orange hover:underline"
+        >
           Sign Up
         </button>
       </p>

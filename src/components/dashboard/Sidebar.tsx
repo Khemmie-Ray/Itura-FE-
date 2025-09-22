@@ -7,7 +7,6 @@ import { LuMessageCircle } from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import ProtectedRoute from "./ProtectedRoutes";
 
 const Sidebar = () => {
   const currentPath = usePathname();

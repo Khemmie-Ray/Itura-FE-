@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ProtectedRoute from "@/components/dashboard/ProtectedRoutes";
+import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
 
 const Library = () => {
   const libraryData = [

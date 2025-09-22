@@ -6,7 +6,6 @@ import MobileSidebar from "@/components/dashboard/MobileSidebar"
 import AuthModal from "@/components/dashboard/AuthModal";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  // const { status } = useContext(StarknetContext);
 
   return (
     <div className="flex justify-between relative lg:flex-row md:flex-row flex-col">
