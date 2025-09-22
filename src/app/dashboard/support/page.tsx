@@ -1,4 +1,4 @@
-import ProtectedRoute from '@/components/dashboard/ProtectedRoutes'
+import ProtectedRoute from '@/components/dashboard/ProtectedRoute'
 import React from 'react'
 
 const Support = () => {

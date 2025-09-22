@@ -5,13 +5,31 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import Image from "next/image";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import { useAuth } from "@/context/AuthContext";
 
 const AuthModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
+  const { user, loading } = useAuth();
 
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
+
+  console.log(user)
+  const Profile = (
+    <div className="flex items-center mb-10">
+    <Image
+      src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar_zs1bzd.svg"
+      alt="User ravatar"
+      width={60}
+      height={60}
+    />
+    <p className="text-[12px] ml-3">
+      Jo Edor <br />
+      <span className="text-white/60">0xe12ewas.......</span>
+    </p>
+  </div>
+  )
 
   return (
     <div>
@@ -19,7 +37,7 @@ const AuthModal = () => {
         className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3 px-6 font-medium"
         onClick={open}
       >
-        Get Started
+        {!user ? "Get Started" : ""}
       </button>
 
       <Dialog open={isOpen} onClose={close} className="relative z-50">

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProtectedRoute from '@/components/dashboard/ProtectedRoutes'
+import ProtectedRoute from '@/components/dashboard/ProtectedRoute'
 
 const Help = () => {
   return (

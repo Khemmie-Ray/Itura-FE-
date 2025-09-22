@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa6";
-import ProtectedRoute from "@/components/dashboard/ProtectedRoutes";
+import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
 
 const Settings = () => {
   const bgColor = "bg-white/10 border-white/20";
