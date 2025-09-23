@@ -1,25 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useContext, useEffect } from "react";
-import { StarknetContext } from "@/contexts/Usercontext";
-
-// interface SkeletonLoaderProps {
-//   className?: string;
-// }
-
 const NotAuthenticated = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo");
-  const { address, status } = useContext(StarknetContext);
-
-  useEffect(() => {
-    if (address && status === "connected" && redirectTo) {
-      router.push(redirectTo);
-    }
-  }, [address, status, redirectTo, router]);
-
   return (
     <div
       className= "animate-pulse space-y-4 p-6 rounded-lg bg-muted w-[80%] mx-auto my-4"
