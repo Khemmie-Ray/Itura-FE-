@@ -10,35 +10,43 @@ import { useAuth } from "@/context/AuthContext";
 const AuthModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
 
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
-  console.log(user)
-  const Profile = (
+  const formatWalletAddress = (address: string): string => {
+    if (!address) return "";
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  }
+
+  const Profile =  () => (
     <div className="flex items-center mb-10">
-    <Image
-      src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar_zs1bzd.svg"
-      alt="User ravatar"
-      width={60}
-      height={60}
-    />
-    <p className="text-[12px] ml-3">
-      Jo Edor <br />
-      <span className="text-white/60">0xe12ewas.......</span>
-    </p>
-  </div>
-  )
+      <Image
+        src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar_zs1bzd.svg"
+        alt="User ravatar"
+        width={50}
+        height={50}
+      />
+      <p className="text-[12px] ml-3">
+        Jo Edor <br />
+        <span className="text-white/60">
+          {user ? formatWalletAddress(user) : ""}
+        </span>
+      </p>
+      <button className="rounded-xl ml-3 px-4 border border-white/20 p-2 font-[300] shadow-lg bg-darkBg/70" onClick={logout}>Disconnect</button>
+    </div>
+  );
 
   return (
     <div>
-      <button
+      <div className="relative z-30">
+      {!user ? <button
         className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3 px-6 font-medium"
         onClick={open}
       >
-        {!user ? "Get Started" : ""}
-      </button>
+        Get Started
+      </button> : <Profile />}</div>
 
       <Dialog open={isOpen} onClose={close} className="relative z-50">
         <div
