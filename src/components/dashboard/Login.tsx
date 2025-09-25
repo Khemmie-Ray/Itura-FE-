@@ -5,6 +5,7 @@ import { CavosAuth } from "cavos-service-sdk";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { SignInWithGoogle } from "cavos-service-sdk";
 import { SignInWithApple } from "cavos-service-sdk";
+import { useAuth } from "@/context/AuthContext";
 import { toast } from "sonner";
 
 const cavosAuth = new CavosAuth(
@@ -23,6 +24,8 @@ const Login = ({
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { login, user } = useAuth();
+  console.log(user)
 
   const GoogleAuth = () => {
     return (
@@ -48,44 +51,19 @@ const Login = ({
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const result = await cavosAuth.signIn(
-        email,
-        password,
-        process.env.NEXT_PUBLIC_CAVOS_ORG_SECRET!
-      );
+    const result: any = await login(email, password);
+    console.log(result);
 
-      toast.success(`${result.message}`);
-      console.log(result);
-
-      const accessToken = result.data.authData.accessToken;
-      const refreshToken = result.data.authData.refreshToken;
-
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
-    } catch (error: any) {
-      let errorMessage = "Login failed";
-      if (error?.message) {
-        const match = error.message.match(/\{.*\}/); 
-        if (match) {
-          try {
-            const parsed = JSON.parse(match[0]);
-            errorMessage = parsed.error || errorMessage; 
-          } catch {
-            errorMessage = error.message;
-          }
-        } else {
-          errorMessage = error.message;
-        }
-      }
-
-      toast.error(`Login failed: ${errorMessage}`);
+    if (result.success) {
+      toast.success(result.message);
+      close();
+    } else {
+      toast.error(result.message);
     }
 
     setLoading(false);
-    setEmail("")
-    setPassword("")
-    close()
+    setEmail("");
+    setPassword("");
   };
 
   return (

@@ -6,7 +6,6 @@ import { useAuth } from "@/context/AuthContext";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth(); 
-  console.log(user, loading)
   const router = useRouter();
 
   useEffect(() => {
