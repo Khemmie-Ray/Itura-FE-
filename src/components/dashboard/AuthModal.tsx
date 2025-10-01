@@ -10,12 +10,12 @@ import { useAuth } from "@/context/AuthContext";
 const AuthModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
-  const { user, loading, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
-  const formatWalletAddress = (address: string): string => {
+  const formatWalletAddress:any = (address: string): string => {
     if (!address) return "";
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   }

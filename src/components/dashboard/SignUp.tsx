@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
 import React, { useState } from "react";
-import { CavosAuth } from "cavos-service-sdk";
+// import { CavosAuth } from "cavos-service-sdk";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { toast } from "sonner";
+import { useAegis } from "@cavos/aegis";
 
-const cavosAuth = new CavosAuth("sepolia", process.env.NEXT_PUBLIC_CAVOS_APP_ID!);
+// const cavosAuth = new CavosAuth("sepolia", process.env.NEXT_PUBLIC_CAVOS_APP_ID!);
 
 const SignUp = ({
   switchToLogin,
@@ -18,17 +19,20 @@ const SignUp = ({
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const  { aegisAccount } = useAegis()
 
   const handleRegister = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const result = await cavosAuth.signUp(email, password, process.env.NEXT_PUBLIC_CAVOS_ORG_SECRET!);
-      console.log("User registered:", result.user);
-      console.log("Wallet created:", result.wallet.address);
+      const result = await aegisAccount.signUp(email, password);
+      console.log("User registered:", result);
+      toast.success("Registration successful!")
+      // console.log("Wallet created:", result.wallet.address);
     } catch (error: any) {
-      toast.error("Registration failed:", error.message);
+      toast.error("Registration failed:", error);
+      console.log(error)
     }
     setLoading(false);
     close();

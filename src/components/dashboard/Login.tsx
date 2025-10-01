@@ -1,17 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { CavosAuth } from "cavos-service-sdk";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
-import { SignInWithGoogle } from "cavos-service-sdk";
-import { SignInWithApple } from "cavos-service-sdk";
 import { useAuth } from "@/context/AuthContext";
-import { toast } from "sonner";
-
-const cavosAuth = new CavosAuth(
-  "sepolia",
-  process.env.NEXT_PUBLIC_CAVOS_APP_ID!
-);
 
 const Login = ({
   switchToSignup,
@@ -23,47 +14,59 @@ const Login = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const { login, user } = useAuth();
-  console.log(user)
+  const { login, user, loading } = useAuth();
+  // const { aegisAccount } = useAegis()
+  // console.log(aegisAccount.address)
+  // console.log(aegisAccount)
 
-  const GoogleAuth = () => {
-    return (
-      <SignInWithGoogle
-        appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
-        network="sepolia"
-        finalRedirectUri="https://yourapp.com/auth/callback"
-      />
-    );
-  };
+  // const GoogleAuth = () => {
+  //   return (
+  //     <SignInWithGoogle
+  //       appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
+  //       network="sepolia"
+  //       finalRedirectUri="https://yourapp.com/auth/callback"
+  //     />
+  //   );
+  // };
 
-  const AppleAuth = () => {
-    return (
-      <SignInWithApple
-        appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
-        network="sepolia"
-        finalRedirectUri="https://yourapp.com/auth/callback"
-      />
-    );
-  };
+  // const AppleAuth = () => {
+  //   return (
+  //     <SignInWithApple
+  //       appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID!}
+  //       network="sepolia"
+  //       finalRedirectUri="https://yourapp.com/auth/callback"
+  //     />
+  //   );
+  // };
 
-  const handleLogin = async (e: any) => {
+  // const handleLogin = async (e: any) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   const result: any = await login(email, password);
+  //   console.log(result);
+
+  //   if (result.success) {
+  //     toast.success(result.message);
+  //     close();
+  //   } else {
+  //     toast.error(result.message);
+  //   }
+
+  //   setLoading(false);
+  //   setEmail("");
+  //   setPassword("");
+  // };
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-
-    const result: any = await login(email, password);
-    console.log(result);
-
-    if (result.success) {
-      toast.success(result.message);
+    try {
+      await login(email, password);
+    } finally {
       close();
-    } else {
-      toast.error(result.message);
+      setPassword("");
+      setEmail("");
     }
-
-    setLoading(false);
-    setEmail("");
-    setPassword("");
   };
 
   return (
@@ -100,9 +103,9 @@ const Login = ({
       >
         {loading ? "Logging in..." : "Log In"}
       </button>
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
       <div className="mb-3"></div>
-      <AppleAuth />
+      {/* <AppleAuth /> */}
       <p className="my-3 text-[12px] text-center">
         Don&apos;t have an account?{" "}
         <button

@@ -1,139 +1,47 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
-
-type AuthResponse = {
-  success: boolean;
-  message: string;
-};
+import { useAegis } from "@cavos/aegis";
+import { toast } from "sonner";
 
 type AuthContextType = {
   user: string | null;
   loading: boolean;
-  login: (email: string, password: string) => Promise<AuthResponse>;
-  logout: () => void;
+  login: (email: string, password: string) => Promise<void> ;
+  logout: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const { aegisAccount } = useAegis(); 
   const [user, setUser] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedWallet = localStorage.getItem("wallet");
-    if (storedWallet) {
-      setUser(storedWallet);
-    }
-    setLoading(false);
-  }, []);
-
-  // useEffect(() => {
-  //   async function validateToken() {
-  //     const accessToken = localStorage.getItem("accessToken");
-  //     const refreshToken = localStorage.getItem("refreshToken");
-
-  //     if (!accessToken || !refreshToken) {
-  //       setLoading(false);
-  //       return;
-  //     }
-
-  //     try {
-  //       const res = await fetch(
-  //         "https://services.cavos.xyz/api/v1/external/auth/token/check",
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             Authorization: `Bearer ${accessToken}`,
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-
-  //       if (res.ok) {
-  //         const data = await res.json();
-  //         if (data.valid) {
-  //           setUser(data.user);
-  //         } else {
-  //           await refreshAccessToken(refreshToken);
-  //         }
-  //       } else {
-  //         await refreshAccessToken(refreshToken);
-  //       }
-  //     } catch (err) {
-  //       console.error("Auth error:", err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-
-  //   validateToken();
-  // }, []);
-
-  // const refreshAccessToken = async (refreshToken: string) => {
-  //   try {
-  //     const res = await fetch('https://services.cavos.xyz/api/v1/external/auth/token/refresh', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         refresh_token: refreshToken,
-  //         app_id: process.env.NEXT_PUBLIC_CAVOS_APP_ID,
-  //         network: 'sepolia'
-  //       }),
-  //       }
-  //     );
-
-  //     if (!res.ok) throw new Error("Refresh failed");
-
-  //     const dx = await res.json();
-  //     console.log(dx)
-
-  //     localStorage.setItem("accessToken", dx.data.authData.accessToken);
-  //     localStorage.setItem("refreshToken", dx.data.authData.refreshToken);
-
-  //     setUser(dx.user);
-  //   } catch (err) {
-  //     console.error("Token refresh failed", err);
-  //   }
-  // };
-
-
-  
-  const login = async (email: string, password: string): Promise<AuthResponse> => {
-    try {
-      const response = await fetch(
-        "https://services.cavos.xyz/api/v1/external/auth/login",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_CAVOS_ORG_SECRET}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password, network: "sepolia" }),
+    const checkConnection = async () => {
+      try {
+        if (aegisAccount?.address) {
+          setUser(aegisAccount.address);
+        } else {
+          setUser(null);
         }
-      );
-  
-      if (!response.ok) {
-        return { success: false, message: "Login failed" };
+      } catch (err) {
+        console.error("Failed to check connection:", err);
+      } finally {
+        setLoading(false);
       }
-  
-      const res = await response.json();
-  
-      localStorage.setItem("accessToken", res.data.authData.accessToken);
-      localStorage.setItem("refreshToken", res.data.authData.refreshToken);
-      localStorage.setItem("wallet", res.data.wallet.address);
-  
-      // const safeUser: User = {
-      //   user_id: res.data.user_id,
-      //   email: res.data.email,
-      //   wallet: { address: res.data.wallet.address },
-      // };
-  
-      // setUser(safeUser);
-  
-      return { success: true, message: res.message };
+    };
+
+    checkConnection();
+  }, [aegisAccount]);
+
+  const login = async (email: string, password: string): Promise<void>  => {
+    setLoading(true);
+    try {
+      const res:any = await aegisAccount.signIn(email, password);
+      toast.success("Log in Successful");
+      setUser(aegisAccount.address || null);
     } catch (error: any) {
       let errorMessage = "Login failed";
   
@@ -150,15 +58,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           errorMessage = error.message;
         }
       }
-  
-      return { success: false, message: errorMessage };
+      toast.error(`Login failed ${errorMessage}`);
+    } finally {
+      setLoading(false);
     }
   };
-  
-  
-  const logout = () => {
-    localStorage.clear();
-    setUser(null);
+
+  const logout = async () => {
+    try {
+      await aegisAccount.signOut();
+      setUser(null);
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   return (
