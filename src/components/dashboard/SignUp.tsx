@@ -31,8 +31,22 @@ const SignUp = ({
       toast.success("Registration successful!")
       // console.log("Wallet created:", result.wallet.address);
     } catch (error: any) {
-      toast.error("Registration failed:", error);
-      console.log(error)
+      let errorMessage = "Registration failed";
+  
+      if (error?.message) {
+        const match = error.message.match(/\{.*\}/);
+        if (match) {
+          try {
+            const parsed = JSON.parse(match[0]);
+            errorMessage = parsed.error || errorMessage;
+          } catch {
+            errorMessage = error.message;
+          }
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      toast.error(`Registration failed ${errorMessage}`);
     }
     setLoading(false);
     close();
