@@ -74,15 +74,6 @@ const Sidebar = () => {
           Setting
         </Link>
         <Link
-          href="/dashboard/help"
-          className={`text-[13px] flex items-center mb-2 py-4 px-4 font-medium ${isActive(
-            "/dashboard/help"
-          )}`}
-        >
-          <TbHelpSquare className="mr-2 text-2xl" />
-          Help
-        </Link>
-        <Link
           href="/dashboard/support"
           className={`text-[13px] flex items-center py-4 px-4 font-medium"
    ${isActive("/dashboard/support")}`}

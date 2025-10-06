@@ -5,7 +5,7 @@ import { FaCircleArrowUp } from "react-icons/fa6";
 
 const TopArt = () => {
   return (
-    <div className="lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
+    <div className="w-[100%] mx-auto">
       <Slider />
       <div className="flex flex-col justify-center items-center">
         <div className="inline-flex items-center rounded-full p-[2px] bg-[radial-gradient(circle_at_center,_#FFFFFF80,_#FFFFFF10)]">
@@ -32,7 +32,7 @@ const TopArt = () => {
             Explore
           </button>
       </div>
-      <div className="flex justify-between my-8">
+      <div className="flex justify-between my-8 lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
         <div>
         <Image 
             src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604686/People_p3hg15.svg"

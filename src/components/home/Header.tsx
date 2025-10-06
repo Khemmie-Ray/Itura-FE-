@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Divide as Hamburger } from "hamburger-react";
-// import { Link } from "react-scroll";
 
 const Header = () => {
   const bgClass = "bg-white/5";
@@ -21,7 +20,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="relative w-[100%]">
+    <header className="relative w-[100%] z-30">
       <div
         className={`lg:flex md:flex items-center lg:w-[60%] md:w-[80%] mx-auto hidden`}
       >
@@ -48,7 +47,7 @@ const Header = () => {
             <a href="mailto:info@itura.org">Contact</a>
           </nav>
           <Link
-            href="/dashboard"
+            href="/login"
             className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3" 
             prefetch={true}
           >
@@ -77,7 +76,7 @@ const Header = () => {
           </nav>
           <div className="flex items-center">
             <Link
-              href="/dashboard"
+              href="/login"
               className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3"
               prefetch={true}
             >
@@ -123,7 +122,7 @@ const Header = () => {
               </a>
             </nav>
             <Link
-              href="/dashboard"
+              href="/login"
               className="p-3 bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white"
               prefetch={true}
             >
@@ -170,7 +169,7 @@ const Header = () => {
                 </a>
               </nav>
               <Link
-                href="/dashboard"
+                href="/login"
                 className="p-3 bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white"
                 prefetch={true}
               >

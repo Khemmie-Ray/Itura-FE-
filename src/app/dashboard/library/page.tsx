@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
 
 const Library = () => {
   const libraryData = [
@@ -18,7 +17,6 @@ const Library = () => {
     },
   ];
   return (
-    <ProtectedRoute>
     <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8">
       <div className="flex justify-between flex-wrap">
         {libraryData.map((info) => (
@@ -34,7 +32,6 @@ const Library = () => {
         ))}
       </div>
     </main>
-    </ProtectedRoute>
   );
 };
 
