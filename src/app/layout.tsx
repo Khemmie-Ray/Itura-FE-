@@ -6,11 +6,6 @@ import { Toaster } from "sonner";
 import { AuthProvider } from "@/context/AuthContext";
 import { AegisProvider } from '@cavos/aegis';
 
-// export const metadata: Metadata = {
-//   title: "Itura",
-//   description: "Your Web3 Art Studio",
-// };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-inter max-w-[1550px] mx-auto w-[100%]">
+      <body className="font-inter max-w-[1550px] mx-auto w-[100%] bg-[#030A04] text-white">
       <AegisProvider
       config={{
         network: 'SN_SEPOLIA',
