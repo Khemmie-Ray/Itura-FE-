@@ -1,13 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import MobileSidebar from "@/components/dashboard/MobileSidebar";
-import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
+// import { useAuth } from "@/context/AuthContext";
+// import { toast } from "sonner";
+// import { useRouter, usePathname } from "next/navigation";
+// import PageLoader from "@/components/loaders/PageLoader";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  // const { user, loading } = useAuth();
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   if (user) {
+  //     router.push("/dashboard");
+  //   }
+  // }, [user, router]);
+
+  // if (loading) return <PageLoader />;
+  // if (!user) return null;
+
+  // if (loading)
+  //   return (
+  //     <p>
+  //       <PageLoader />
+  //     </p>
+    // );
+
   return (
-    <ProtectedRoute>
     <div className="flex justify-between relative lg:flex-row md:flex-row flex-col">
       <Sidebar />
       <div className="lg:w-[80%] md:w-[80%] w-[100%] py-6 h-auto lg:h-[95vh] md:h-[95vh] lg:max-h-[982px] md:max-h-[960px] overflow-y-scroll relative flex flex-col px-6">
@@ -18,7 +39,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </div>
     </div>
-    </ProtectedRoute>
   );
 };
 
