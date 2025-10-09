@@ -17,8 +17,8 @@ import {
 
 const Filter = () => {
   return (
-    <div className="flex items-center justify-between relative z-20">
-        <div className="w-2/4 ">
+    <div className="flex items-center justify-between lg:flex-row md:flex-row flex-col relative z-20">
+        <div className="lg:w-[57%] md:w-[57%] w-[100%] mb-3">
         <InputGroup className="rounded-full border-white/30 px-4 py-5">
         <InputGroupInput placeholder="Search professioals.." />
         <InputGroupAddon>
@@ -26,9 +26,10 @@ const Filter = () => {
         </InputGroupAddon>
       </InputGroup>
       </div>
-      <div className="1/4">
+      <div className="flex lg:w-[40%] md:w-[40%] w-[100%] justify-between mb-3">
+      <div className="w-[48%]">
       <Select>
-        <SelectTrigger className="w-[180px] rounded-full border-white/30 py-5 px-4">
+        <SelectTrigger className="w-[100%] rounded-full border-white/30 py-5 px-4">
           <SelectValue placeholder="Availability"  />
         </SelectTrigger>
         <SelectContent className="bg-black/50 rounded-[34px] p-4 border-white/10 text-white hover:bg-black">
@@ -40,9 +41,9 @@ const Filter = () => {
         </SelectContent>
       </Select>
       </div>
-      <div className="w-1/4">
+      <div className="w-[48%]">
       <Select>
-        <SelectTrigger className="w-[180px] rounded-full border-white/30 py-5 px-4">
+        <SelectTrigger className="w-[100%] rounded-full border-white/30 py-5 px-4">
           <SelectValue placeholder="Specialty" />
         </SelectTrigger>
         <SelectContent className="bg-black/50 rounded-[34px] p-4 border-white/10 text-white hover:bg-black">
@@ -54,6 +55,7 @@ const Filter = () => {
           </SelectGroup>
         </SelectContent>
       </Select>
+      </div>
       </div>
     </div>
   );
