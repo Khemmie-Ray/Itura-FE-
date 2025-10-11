@@ -41,6 +41,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const res:any = await aegisAccount.signIn(email, password);
       toast.success("Log in Successful");
+      const cavosUserId = res.user_id;
+      // console.log(cavosUserId)
+      // console.log(res)
       setUser(aegisAccount.address || null);
     } catch (error: any) {
       let errorMessage = "Login failed";
@@ -59,6 +62,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
       }
       toast.error(`Login failed ${errorMessage}`);
+
     } finally {
       setLoading(false);
     }

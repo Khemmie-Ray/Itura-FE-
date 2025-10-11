@@ -7,6 +7,8 @@ import Link from "next/link";
 import Slider from "@/components/home/Slider";
 import Image from "next/image";
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
+import { useAegis } from "@cavos/aegis";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +16,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { login, loading, user } = useAuth();
   const [errors, setErrors] = useState({ email: false, password: false });
-//   console.log(user)
+  const { aegisAccount } = useAegis()
+  console.log(user, aegisAccount)
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

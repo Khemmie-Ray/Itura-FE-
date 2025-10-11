@@ -8,6 +8,8 @@ import Image from "next/image";
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 import { useAegis } from "@cavos/aegis";
 import { RxCheckCircled } from "react-icons/rx";
+import { useMutation } from "@tanstack/react-query";
+import axios from 'axios'
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -38,6 +40,41 @@ const SignUp = () => {
     }
   };
 
+  const registerUser = useMutation({
+    mutationFn: async ({
+      cavosUserId,
+      userWalletAddress,
+    }: {
+      cavosUserId: string;
+      userWalletAddress: string;
+    }) => {
+      const { data } = await axios.post(
+        "https://itura-backend-ng6nl.ondigitalocean.app/api/v1/user/register",
+        {
+          cavosUserId,
+          userWalletAddress,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      return data;
+    },
+
+    onSuccess: (data) => {
+      toast.success("User registered successfully with backend!");
+      console.log("Backend response:", data);
+    },
+
+    onError: (error: any) => {
+      toast.error(
+        error.response?.data?.message ||
+          "Something went wrong while registering to backend."
+      );
+      console.error(error);
+    },
+  });
+
   const handlePasswordBlur = () => {
     if (!validatePassword(password)) {
       setErrors((prev) => ({ ...prev, password: true }));
@@ -57,10 +94,15 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      const result = await aegisAccount.signUp(email, password);
+      const result:any = await aegisAccount.signUp(email, password);
       console.log("User registered:", result);
       toast.success("Registration successful!");
-      // console.log("Wallet created:", result.wallet.address);
+      console.log("Aegis result:", result);
+
+      const cavosUserId = result.user_Id;
+      const userWalletAddress = result.address;
+
+      registerUser.mutate({ cavosUserId, userWalletAddress });
     } catch (error: any) {
       let errorMessage = "Registration failed";
 

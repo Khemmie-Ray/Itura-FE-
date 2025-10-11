@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 const Library = () => {
   const libraryData = [
@@ -21,11 +20,9 @@ const Library = () => {
       <div className="flex justify-between flex-wrap">
         {libraryData.map((info) => (
           <div className="w-[48%] lg:w-[32%] md:w-[32%] p-4 border border-white/10 rounded-2xl bg-white/10" key={info.id}>
-             <Image
+             <img
               src={info.image}
               alt="AI generated images"
-              width={300}
-              height={300}
               className="w-[100%] ml-auto"
             />
           </div>

@@ -1,10 +1,10 @@
 "use client"
 
-import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { AuthProvider } from "@/context/AuthContext";
 import { AegisProvider } from '@cavos/aegis';
+import QueryProvider from "@/providers/QueryProvider";
 
 export default function RootLayout({
   children,
@@ -14,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-inter max-w-[1550px] mx-auto w-[100%] bg-[#030A04] text-white">
+      <QueryProvider>
       <AegisProvider
       config={{
         network: 'SN_SEPOLIA',
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Toaster richColors={true} position="top-right" />
         </AuthProvider>
         </AegisProvider>
+        </QueryProvider>
       </body>
     </html>
   );
