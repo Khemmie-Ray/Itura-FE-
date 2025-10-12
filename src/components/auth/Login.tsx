@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { toast } from "sonner";
 import Link from "next/link";
@@ -9,18 +9,15 @@ import Image from "next/image";
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 import { useAegis } from "@cavos/aegis";
 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { login, loading, user } = useAuth();
   const [errors, setErrors] = useState({ email: false, password: false });
-  const { aegisAccount } = useAegis();
-  console.log(user, "Logged in", aegisAccount);
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  const { aegisAccount } = useAegis()
+  console.log(user, "Logged in")
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,16 +68,16 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-[80%] mx-auto my-12">
+        <div className="w-[80%] mx-auto my-12">
         <Link href="/">
-          <Image
-            src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604683/logo_jpexvw.svg"
-            alt="Itura's logo"
-            width={100}
-            height={100}
-          />
-        </Link>
-      </div>
+            <Image
+              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604683/logo_jpexvw.svg"
+              alt="Itura's logo"
+              width={100}
+              height={100}
+            />
+          </Link>
+          </div>
       <Slider />
       <div className="lg:w-[30%] md:w-[40%] w-[90%] mx-auto flex flex-col items-center">
         <div className="inline-flex items-center rounded-full mt-10 p-[2px] bg-[radial-gradient(circle_at_center,_#FFFFFF80,_#FFFFFF10)]">

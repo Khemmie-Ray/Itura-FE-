@@ -100,7 +100,7 @@ const SignUp = () => {
       console.log("Aegis result:", result);
 
       const cavosUserId = result.user_Id;
-      const userWalletAddress = result.address;
+      const userWalletAddress = result.wallet.address;
 
       registerUser.mutate({ cavosUserId, userWalletAddress });
     } catch (error: any) {

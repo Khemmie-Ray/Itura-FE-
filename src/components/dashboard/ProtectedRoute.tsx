@@ -1,29 +1,38 @@
+// src/components/ProtectedRoute.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { useAuth } from "@/context/AuthContext"; 
-import PageLoader from "../loaders/PageLoader";
+import { useAuth } from "@/context/AuthContext";
+import PageLoader from "@/components/loaders/PageLoader";
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user, loading } = useAuth(); 
+export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuth();
   const router = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    if (!loading && !user) {
-      router.push("/login");
+    if (!mounted || loading) return;
+
+    // If not logged in and trying to access dashboard, redirect to login
+    if (!user && pathname.startsWith("/dashboard")) {
+      router.replace("/login");
+      return;
     }
-    
+
+    // If logged in and on auth pages, send to dashboard
     if (user && (pathname === "/login" || pathname === "/signup" || pathname === "/")) {
       router.replace("/dashboard");
     }
-  }, [user, loading, pathname, router]);
+  }, [mounted, user, loading, pathname, router]);
 
-  if (loading) return <p><PageLoader /></p>;
-  if (!user) return null; 
+  if (!mounted || loading) return <PageLoader />;
+
+  // If not user and somehow here, return null to avoid rendering protected children
+  if (!user && pathname.startsWith("/dashboard")) return null;
 
   return <>{children}</>;
-};
-
-export default ProtectedRoute;
+}
