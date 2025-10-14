@@ -2,10 +2,12 @@ import React from "react";
 import { GoDotFill } from "react-icons/go";
 import Image from "next/image";
 import SupportCard from "@/components/dashboard/SupportCard";
+import Profile from "@/components/dashboard/Profile";
 
 const Supportdetails = () => {
   return (
     <div className="w-[95%] lg:w-[80%] md:w-[80%] mx-auto lg:py-10 md:py-8 py-6 text-[12px]">
+      <Profile />
       <div className="flex justify-between lg:flex-row md:flex-row flex-col bg-[#08051466] rounded-[34px] border border-white/20 lg:px-10 md:px-8 px-6 py-6 relative z-20 mb-6">
         <div className="w-[100%] lg:w-[40%] md:w-[40%] lg:order-1 md:order-1 order-2">
           <h1 className="lg:text-[42px] md:text-[32px] text-[24px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#C3C1CE] inline-block text-transparent bg-clip-text">

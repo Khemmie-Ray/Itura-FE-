@@ -2,12 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa6";
+import Profile from "@/components/dashboard/Profile";
 
 const Settings = () => {
   const bgColor = "bg-white/10 border-white/20";
 
   return (
     <main className="lg:relative md:relative w-[90%] lg:w-[80%] md:w-[80%] mx-auto my-8 lg:z-20 md:z-20">
+      <Profile />
       <h2 className="font-medium text-[24px] lg:text-[32px] md:text-[26px]">
         Account Setting
       </h2>

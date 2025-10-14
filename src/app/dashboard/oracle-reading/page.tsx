@@ -1,8 +1,11 @@
 import React from 'react'
+import Profile from '@/components/dashboard/Profile'
 
 const OracleReading = () => {
   return (
-    <div>page</div>
+    <div>
+      <Profile />
+    </div>
   )
 }
 

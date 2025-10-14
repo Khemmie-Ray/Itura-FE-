@@ -7,6 +7,8 @@ import { LuMessageCircle } from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { FaCircleNodes } from "react-icons/fa6";
+import { IoHeadsetSharp } from "react-icons/io5";
 
 const Sidebar = () => {
   const currentPath = usePathname();
@@ -62,6 +64,24 @@ const Sidebar = () => {
       >
         <GiOpenPalm className="mr-2 text-2xl" />
         Oracle Readings
+      </Link>
+      <Link
+        href="/dashboard/meditation"
+        className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium ${isActive(
+          "/dashboard/meditation"
+        )}`}
+      >
+        <IoHeadsetSharp className="mr-2 text-2xl" />
+        Meditation
+      </Link>
+      <Link
+        href="/dashboard/astrology"
+        className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium ${isActive(
+          "/dashboard/astrology"
+        )}`}
+      >
+        <FaCircleNodes className="mr-2 text-2xl" />
+        Astrology
       </Link>
       <div className="border-t border-b border-white/30 mb-10 mt-4 py-6">
         <Link
