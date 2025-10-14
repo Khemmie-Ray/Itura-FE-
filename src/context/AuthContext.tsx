@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(aegisAccount.address || null);
 
       if (res) {
-        router.push("/dashboard");
+        router.replace("/dashboard");
       }
       console.log(res);
     } catch (error: any) {

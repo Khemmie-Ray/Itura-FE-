@@ -1,33 +1,37 @@
-"use client";
+"use client"
 
-import React, { useEffect } from "react";
+import React from "react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import MobileSidebar from "@/components/dashboard/MobileSidebar";
-// import { useAuth } from "@/context/AuthContext";
-// import { toast } from "sonner";
-// import { useRouter, usePathname } from "next/navigation";
-// import PageLoader from "@/components/loaders/PageLoader";
 import ProtectedRoute from "@/components/dashboard/ProtectedRoute";
+import Image from "next/image";
+import { useAuth } from "@/context/AuthContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  // const { user, loading } = useAuth();
-  // const router = useRouter();
+  const { user, logout } = useAuth();
 
-  // useEffect(() => {
-  //   if (user) {
-  //     router.push("/dashboard");
-  //   }
-  // }, [user, router]);
+  const formatWalletAddress:any = (address: string): string => {
+    if (!address) return "";
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  }
 
-  // if (loading) return <PageLoader />;
-  // if (!user) return null;
-
-  // if (loading)
-  //   return (
-  //     <p>
-  //       <PageLoader />
-  //     </p>
-    // );
+  const Profile =  () => (
+    <div className="flex items-center mb-10">
+      <Image
+        src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar_zs1bzd.svg"
+        alt="User ravatar"
+        width={50}
+        height={50}
+      />
+      <p className="text-[12px] ml-3">
+        Jo Edor <br />
+        <span className="text-white/60">
+          {user ? formatWalletAddress(user) : ""}
+        </span>
+      </p>
+      <button className="rounded-xl ml-3 px-4 border border-white/20 p-2 font-[300] shadow-lg bg-darkBg/70" onClick={logout}>Disconnect</button>
+    </div>
+  );
 
   return (
     <ProtectedRoute>
@@ -38,6 +42,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <MobileSidebar />
         </div>
         <div className="lg:w-[706px] md:w-[706px] w-[200px]  lg:h-[353px] md:h-[300px] h-[100px] bg-gradient-to-b from-gradientYellow to-gradientRed lg:blur-[315px] md:blur-[280px] blur-[50px] rounded-bl-full rounded-br-full absolute left-1/2 top-0 transform -translate-x-1/2 z-10"></div>
+        <div className="ml-auto">
+        <Profile />
+        </div>
         {children}
       </div>
     </div>
