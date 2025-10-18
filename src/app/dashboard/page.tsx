@@ -7,7 +7,6 @@ import DemoCard from "@/components/dashboard/DemoCard";
 import Profile from "@/components/dashboard/Profile";
 
 const Dashboard = () => {
-
   return (
     <main>
       <Profile />

@@ -16,7 +16,7 @@ const Login = () => {
   const { login, loading, user } = useAuth();
   const [errors, setErrors] = useState({ email: false, password: false });
   const { aegisAccount } = useAegis();
-  console.log(user, "Logged in", aegisAccount);
+  // console.log(aegisAccount);
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);

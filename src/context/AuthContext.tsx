@@ -10,6 +10,7 @@ type AuthContextType = {
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  userId: string | null;
 };
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -19,6 +20,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [userId, setUserId] = useState<string | null>(null)
 
   useEffect(() => {
     const checkConnection = async () => {
@@ -44,7 +46,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const res: any = await aegisAccount.signIn(email, password);
       toast.success("Log in Successful");
       const cavosUserId = res.user_id;
-      // console.log(cavosUserId)
+      setUserId(cavosUserId)
       setUser(aegisAccount.address || null);
 
       if (res) {
@@ -77,13 +79,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await aegisAccount.signOut();
       setUser(null);
-    } catch (err) {
-      console.error("Logout failed:", err);
+    } catch (err:any) {
+      toast.error("Logout failed:", err);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, userId }}>
       {children}
     </AuthContext.Provider>
   );
