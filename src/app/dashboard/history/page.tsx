@@ -6,7 +6,9 @@ import Profile from '@/components/dashboard/Profile'
 const History = () => {
   return (
     <div>
+      <div className='flex justify-end'>
       <Profile />
+      </div>
       <MobDayCard />
         <DayCard />
     </div>

@@ -18,7 +18,9 @@ const Library = () => {
   ];
   return (
     <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8">
+      <div className='flex justify-end'>
       <Profile />
+      </div>
       <div className="flex justify-between flex-wrap">
         {libraryData.map((info) => (
           <div className="w-[48%] lg:w-[32%] md:w-[32%] p-4 border border-white/10 rounded-2xl bg-white/10" key={info.id}>

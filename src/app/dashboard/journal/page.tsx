@@ -10,7 +10,9 @@ const Journal = () => {
 
   return (
     <main className="flex flex-col lg:min-h-[80vh] md:min-h-[80vh] min-h-[90vh]">
+       <div className='flex justify-end'>
       <Profile />
+      </div>
       {/* <section
         className={`lg:w-[80%] md:w-[80%] w-[90%] mx-auto`}
       >

@@ -9,7 +9,9 @@ import Profile from "@/components/dashboard/Profile";
 const Dashboard = () => {
   return (
     <main>
-      <Profile />
+      <div className="flex justify-end">
+        <Profile />
+      </div>
       <DemoCard />
       <section className="lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
         <h2 className="lg:text-[30px] md:text-[30px] text-[20px] text-center mt-24 lg:w-[70%] mx-auto md:w-[70%] w-[90%]">
