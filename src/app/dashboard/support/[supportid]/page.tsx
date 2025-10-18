@@ -6,8 +6,19 @@ import Profile from "@/components/dashboard/Profile";
 
 const Supportdetails = () => {
   return (
-    <div className="w-[95%] lg:w-[80%] md:w-[80%] mx-auto lg:py-10 md:py-8 py-6 text-[12px]">
-      <Profile />
+    <div className="w-[95%] lg:w-[80%] md:w-[80%] mx-auto text-[12px]">
+      <div className="flex justify-between">
+        <div className="mb-10">
+          <h1 className="lg:text-[24px] md:text-[22px] text-[18px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#B0ADBF] inline-block text-transparent bg-clip-text">
+            Get Pro Support
+          </h1>
+          <p className="text-[14px]">
+            Consult with specialists in various fields
+          </p>
+        </div>
+        <Profile />
+      </div>
+      <div className="my-20"></div>
       <div className="flex justify-between lg:flex-row md:flex-row flex-col bg-[#08051466] rounded-[34px] border border-white/20 lg:px-10 md:px-8 px-6 py-6 relative z-20 mb-6">
         <div className="w-[100%] lg:w-[40%] md:w-[40%] lg:order-1 md:order-1 order-2">
           <h1 className="lg:text-[42px] md:text-[32px] text-[24px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#C3C1CE] inline-block text-transparent bg-clip-text">
@@ -50,62 +61,64 @@ const Supportdetails = () => {
         </div>
       </div>
       <div className="mb-6">
-      <div className="mb-4 flex items-center justify-between">
-        <p className="lg:w-[15%] md:w-[15%] w-auto">Experience:</p>
-        <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
-          <p>8+ years in mental health counseling</p>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="lg:w-[15%] md:w-[15%] w-auto">Experience:</p>
+          <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
+            <p>8+ years in mental health counseling</p>
+          </div>
         </div>
-      </div>
-      <div className="mb-4 flex items-center justify-between">
-        <p className="lg:w-[15%] md:w-[15%] w-auto">Location:</p>
-        <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
-          <p>Remote & in-person (Kaduna, Nigeria)</p>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="lg:w-[15%] md:w-[15%] w-auto">Location:</p>
+          <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
+            <p>Remote & in-person (Kaduna, Nigeria)</p>
+          </div>
         </div>
-      </div>
-      <div className="mb-4 flex items-center justify-between">
-        <p className="lg:w-[15%] md:w-[15%] w-auto">Specialties:</p>
-        <div className="bg-[#211E2C] p-6 w-[83%] rounded-full flex items-center flex-wrap">
-          <p className="flex items-center mr-3">
-            <GoDotFill className="text-[#423F4D] mr-2" />
-            Stress management{" "}
-          </p>
-          <p className="flex items-center mr-3">
-            <GoDotFill className="text-[#423F4D] mr-2"  />
-            Anxiety{" "}
-          </p>
-          <p className="flex items-center mr-3">
-            <GoDotFill className="text-[#423F4D] mr-2"  />
-            Trauma recovery{" "}
-          </p>
-          <p className="flex items-center mr-3">
-            <GoDotFill className="text-[#423F4D] mr-2"  />
-            Relationship therapy{" "}
-          </p>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="lg:w-[15%] md:w-[15%] w-auto">Specialties:</p>
+          <div className="bg-[#211E2C] p-6 w-[83%] rounded-full flex items-center flex-wrap">
+            <p className="flex items-center mr-3">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              Stress management{" "}
+            </p>
+            <p className="flex items-center mr-3">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              Anxiety{" "}
+            </p>
+            <p className="flex items-center mr-3">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              Trauma recovery{" "}
+            </p>
+            <p className="flex items-center mr-3">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              Relationship therapy{" "}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="mb-4 flex items-center justify-between">
-        <p className="lg:w-[15%] md:w-[15%] w-auto">Approach:</p>
-        <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
-          <p>Cognitive Behavioral Therapy (CBT), holistic healing methods</p>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="lg:w-[15%] md:w-[15%] w-auto">Approach:</p>
+          <div className="bg-[#211E2C] p-6 w-[83%] rounded-full">
+            <p>Cognitive Behavioral Therapy (CBT), holistic healing methods</p>
+          </div>
         </div>
-      </div>
-      <div className="mb-4 flex items-center justify-between">
-        <p className="lg:w-[15%] md:w-[15%] w-auto">Language:</p>
-        <div className="bg-[#211E2C] p-6 w-[83%] rounded-full flex items-center">
-        <p className="flex items-center mr-3">
-            <GoDotFill className="text-[#423F4D] mr-2" />
-            English{" "}
-          </p>
-          <p className="flex items-center mr-3 flex-wrap">
-            <GoDotFill className="text-[#423F4D] mr-2"  />
-            Hausa{" "}
-          </p>
-        </div>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="lg:w-[15%] md:w-[15%] w-auto">Language:</p>
+          <div className="bg-[#211E2C] p-6 w-[83%] rounded-full flex items-center">
+            <p className="flex items-center mr-3">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              English{" "}
+            </p>
+            <p className="flex items-center mr-3 flex-wrap">
+              <GoDotFill className="text-[#423F4D] mr-2" />
+              Hausa{" "}
+            </p>
+          </div>
         </div>
       </div>
       <div className="my-14">
-      <h2 className="text-[16px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#C3C1CE] inline-block text-transparent bg-clip-text mb-4">More Pros to check out</h2>
-      <SupportCard />
+        <h2 className="text-[16px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#C3C1CE] inline-block text-transparent bg-clip-text mb-4">
+          More Pros to check out
+        </h2>
+        <SupportCard />
       </div>
     </div>
   );

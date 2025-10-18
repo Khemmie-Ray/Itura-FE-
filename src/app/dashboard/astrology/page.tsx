@@ -5,7 +5,7 @@ import { CgAsterisk } from "react-icons/cg";
 
 const Astrology = () => {
   return (
-    <div className="w-[90%] mx-auto mb-8">
+    <div className="w-[90%] mx-auto mb-8 relative z-20">
       <div className="flex justify-between">
         <div className="mb-10">
           <h1 className="lg:text-[24px] md:text-[22px] text-[18px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#B0ADBF] inline-block text-transparent bg-clip-text">
@@ -41,38 +41,38 @@ const Astrology = () => {
       </div>
       <div className="my-10 relative z-20">
         <div className="flex justify-between items-center">
-          <div className="lg:w-[48%] md:w-[48%] mb-3 w-[100%]">
+          <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Name <span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
               className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
             />
           </div>
-          <div className="lg:w-[48%] md:w-[48%] mb-3 w-[100%]">
+          <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Email <span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
               className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
             />
           </div>
-        </div>
-        <div className="flex justify-between items-center">
-          <div className="lg:w-[48%] md:w-[48%] mb-3 w-[100%]">
+          <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Time of Birth<span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
               className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
             />
           </div>
-          <div className="lg:w-[48%] md:w-[48%] mb-3 w-[100%]">
+          <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Place of Birth<span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
               className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
             />
-          </div>
         </div>
-        <button className="rounded-xl ml-3 px-4 border dark:border-white/10 p-3 font-[500] shadow-2xl bg-white/10">Generate My Chart</button>
+        </div>
+        <div className="flex justify-center">
+        <button className="rounded-xl ml-3 px-8 border border-white/20 p-3 font-[500] shadow-2xl bg-black/30 lg:w-[30%] md:w-[30%] w-[100%]">Generate My Chart</button>
+      </div>
       </div>
     </div>
   );
