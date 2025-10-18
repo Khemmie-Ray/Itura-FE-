@@ -13,7 +13,7 @@ const Profile = () => {
     }
 
   return (
-    <div className="flex items-center mb-10">
+    <div className="lg:flex md:flex hidden items-center mb-10">
     <Image
       src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604688/ravatar_zs1bzd.svg"
       alt="User ravatar"

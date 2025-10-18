@@ -76,7 +76,7 @@ const Meditation = () => {
       <div className="w-[90%] mr-auto">
         <div>
           {musicData.map((info, index) => (
-            <div key={index} className="flex justify-between items-center py-3">
+            <div key={index} className="flex justify-between items-center py-3 lg:flex-row md:flex-row flex-col">
               <div className="w-[100%] lg:w-[49%] md:w-[49%] bg-black/20 rounded-[21px] p-8 border border-white/15 mb-auto">
                 <div className="flex justify-between border-b border-white/15 py-4">
                   <div className="w-[80%]">

@@ -72,7 +72,7 @@ const Login = () => {
   return (
     <div>
       <div className="w-[80%] mx-auto my-12">
-        <Link href="/">
+        <Link href="/" className="cursor-pointer">
           <Image
             src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1752604683/logo_jpexvw.svg"
             alt="Itura's logo"

@@ -37,41 +37,41 @@ const Astrology = () => {
         <h1 className="lg:text-[70px] md:text-[52px] text-[24px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#B0ADBF] block text-transparent bg-clip-text">
           What the Stars Say About You
         </h1>
-        <p className="">Input your information to get started.</p>
+        <p className="text-[14px]">Input your information to get started.</p>
       </div>
       <div className="my-10 relative z-20">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center lg:flex-row md:flex-row flex-col">
           <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Name <span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
-              className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
+              className="p-3 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
             />
           </div>
           <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Email <span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
-              className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
+              className="p-3 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
             />
           </div>
           <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Time of Birth<span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
-              className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
+              className="p-3 rounded-[18px] bg-white/10 shadow-2xl border border-white/15  w-[100%] mb-3 focus:outline-none"
             />
           </div>
           <div className="lg:w-[22%] md:w-[22%] mb-3 w-[100%]">
             <p className="flex mb-2">Place of Birth<span className="mb-auto text-red-500"><CgAsterisk /></span></p>
             <input
               type="text"
-              className="p-4 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
+              className="p-3 rounded-[18px] bg-white/10 shadow-2xl border border-white/15 w-[100%] mb-3 focus:outline-none"
             />
         </div>
         </div>
         <div className="flex justify-center">
-        <button className="rounded-xl ml-3 px-8 border border-white/20 p-3 font-[500] shadow-2xl bg-black/30 lg:w-[30%] md:w-[30%] w-[100%]">Generate My Chart</button>
+        <button className="rounded-xl px-8 border border-white/20 p-3 font-[500] shadow-2xl bg-black/30 lg:w-[30%] md:w-[30%] w-[100%]">Generate My Chart</button>
       </div>
       </div>
     </div>
