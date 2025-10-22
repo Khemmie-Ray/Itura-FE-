@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const cavosUserId = res.user_id;
       setUserId(cavosUserId)
       setUser(aegisAccount.address || null);
+      // console.log(aegisAccount)
 
       if (res) {
         router.replace("/dashboard");
