@@ -61,8 +61,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await login(email, password);
-      toast.success("Login successful!");
+      const result:any = await login(email, password);
     } finally {
       setPassword("");
       setEmail("");

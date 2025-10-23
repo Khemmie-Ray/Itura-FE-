@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useAegis } from "@cavos/aegis";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useGetUserDetails } from "@/hooks/useGetUserDetails";
 
 type AuthContextType = {
   user: string | null;
@@ -11,6 +12,7 @@ type AuthContextType = {
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   userId: string | null;
+  profileName: string | null;
 };
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -21,6 +23,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [userId, setUserId] = useState<string | null>(null)
+  const [profileName, setProfileName] = useState<string | null>(null)
+  const { data } = useGetUserDetails(userId);
+
+  useEffect(() => {
+    if (data?.data?.userName !== "string") {
+      setProfileName(data?.data.userName);
+    }
+  }, [data]);
 
   useEffect(() => {
     const checkConnection = async () => {
@@ -49,7 +59,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUserId(cavosUserId)
       setUser(aegisAccount.address || null);
       // console.log(aegisAccount)
-
+     
       if (res) {
         router.replace("/dashboard");
       }
@@ -86,7 +96,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, userId }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, userId, profileName }}>
       {children}
     </AuthContext.Provider>
   );

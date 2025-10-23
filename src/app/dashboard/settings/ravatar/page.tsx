@@ -5,7 +5,9 @@ import Profile from "@/components/dashboard/Profile";
 const Ravatar = () => {
   return (
     <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8">
+       <div className='flex justify-end'>
       <Profile />
+      </div>
       <div className="w-[100%] lg:w-[40%] md:w-[40%] mx-auto">
         <Image
           src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1757346067/ravatar-logo_gs3g6n_fcewun.png"

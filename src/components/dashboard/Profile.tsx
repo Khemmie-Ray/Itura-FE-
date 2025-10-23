@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useAuth } from '@/context/AuthContext';
 
 const Profile = () => {
-    const { user, logout } = useAuth();
+    const { user, logout, profileName } = useAuth();
 
     const formatWalletAddress:any = (address: string): string => {
       if (!address) return "";
@@ -21,7 +21,7 @@ const Profile = () => {
       height={50}
     />
     <p className="text-[12px] ml-3">
-      Jo Edor <br />
+      {profileName}<br />
       <span className="text-white/60">
         {user ? formatWalletAddress(user) : ""}
       </span>

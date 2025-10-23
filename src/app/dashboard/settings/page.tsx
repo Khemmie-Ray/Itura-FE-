@@ -27,7 +27,7 @@ const Settings = () => {
   useEffect(() => {
     if (data?.data) {
       setFormData({
-        userName: data?.data.userName === "string" ? "" : data.data.userName,
+        userName: data?.data.userName === "string" ? "" : data?.data.userName,
         xhandle: data?.data.xhandle === "string" ? "" : data.data.xhandle,
         instagramHandle:
           data?.data.instagramHandle === "string"
@@ -50,7 +50,7 @@ const Settings = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!userId) return;
-  
+
     updateUser.mutate(
       {
         userId,
@@ -58,7 +58,7 @@ const Settings = () => {
       },
       {
         onSuccess: (response) => {
-          toast.success("✅ Profile updated successfully!");
+          toast.success("Profile updated successfully!");
           console.log("Response:", response);
         },
         onError: (error: any) => {
@@ -67,17 +67,20 @@ const Settings = () => {
         },
       }
     );
-  };  
+  };
 
   if (isLoading) return <p>Loading user details...</p>;
   if (isError) return <p>Failed to load user details.</p>;
 
   return (
-    <main className="lg:relative md:relative w-[90%] lg:w-[80%] md:w-[80%] mx-auto my-8 lg:z-20 md:z-20">
-      <Profile />
-      <h2 className="font-medium text-[24px] lg:text-[32px] md:text-[26px]">
+    <main className="lg:relative md:relative my-8 lg:z-20 md:z-20">
+      <div className="flex justify-between items-center">
+      <h2 className="font-medium text-[24px] lg:text-[32px] md:text-[26px] mb-10">
         Account Setting
       </h2>
+        <Profile />
+      </div>
+     <div className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto">
       <div className="flex items-center lg:mt-12 md:mt-8 mb-3">
         <p className="text-[12px] lg:text-[16px] md:text-[16px]">
           Choose your Ravatar
@@ -200,6 +203,7 @@ const Settings = () => {
           </button>
         </div>
       </form>
+      </div>
     </main>
   );
 };
