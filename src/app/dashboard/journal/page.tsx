@@ -9,7 +9,7 @@ const Journal = () => {
   const themeColor = "bg-white/15 border-white/20";
 
   return (
-    <main className="flex flex-col lg:min-h-[80vh] md:min-h-[80vh] min-h-[90vh]">
+    <main className="flex flex-col lg:min-h-[80vh] md:min-h-[80vh] min-h-[90vh] relative z-30">
        <div className='flex justify-end'>
       <Profile />
       </div>

@@ -17,7 +17,7 @@ const Library = () => {
     },
   ];
   return (
-    <main className=" mb-8">
+    <main className=" mb-8 relative z-30">
       <div className='flex justify-end'>
       <Profile />
       </div>

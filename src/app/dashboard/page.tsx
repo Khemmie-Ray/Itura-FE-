@@ -3,19 +3,15 @@ import Slider from "@/components/dashboard/Slider";
 import MobileSlider from "@/components/dashboard/MobileSlider";
 import MoodBoard from "@/components/dashboard/MoodBoard";
 import MobileAiCards from "@/components/dashboard/MobileAiCards";
-import DemoCard from "@/components/dashboard/DemoCard";
 import Profile from "@/components/dashboard/Profile";
-import SubscriptionModal from "@/components/dashboard/SubscriptionModal"
 import UserModal from "@/components/dashboard/UserModal";
 
 const Dashboard = () => {
   return (
-    <main>
+    <main className="relative z-30">
       <div className="flex justify-end">
         <Profile />
       </div>
-      {/* <DemoCard /> */}
-      {/* <SubscriptionModal /> */}
       <UserModal />
       <section className="lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
         <h2 className="lg:text-[30px] md:text-[30px] text-[20px] text-center mt-24 lg:w-[70%] mx-auto md:w-[70%] w-[90%]">

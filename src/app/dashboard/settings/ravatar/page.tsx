@@ -4,7 +4,7 @@ import Profile from "@/components/dashboard/Profile";
 
 const Ravatar = () => {
   return (
-    <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8">
+    <main className="w-[90%] lg:w-[80%] md:w-[80%] mx-auto mb-8 relative z-30">
        <div className='flex justify-end'>
       <Profile />
       </div>
