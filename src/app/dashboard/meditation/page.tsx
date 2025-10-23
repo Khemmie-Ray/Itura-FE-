@@ -93,21 +93,23 @@ const Meditation = () => {
     },
   ];
 
-  const [voicePreference, setVoicePreference] = useState<"female" | "male">("female");
+  const [voicePreference, setVoicePreference] = useState<"female" | "male">(
+    "female"
+  );
   const [selectedAudio, setSelectedAudio] = useState<MusicItem | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const filteredMusic = musicData.filter((item) => item.tone === voicePreference);
+  const filteredMusic = musicData.filter(
+    (item) => item.tone === voicePreference
+  );
 
   const handleSelectAudio = (item: MusicItem) => {
     if (selectedAudio?.id === item.id && isPlaying) {
-     
       audioRef.current?.pause();
       setIsPlaying(false);
       setSelectedAudio(null);
     } else {
- 
       setSelectedAudio(item);
       setIsPlaying(true);
       setTimeout(() => {
@@ -125,7 +127,7 @@ const Meditation = () => {
   };
 
   return (
-    <div className="w-[90%] mx-auto relative z-20">
+    <div className="relative z-30">
       <div className="flex justify-between">
         <div className="mb-10">
           <h1 className="lg:text-[24px] md:text-[22px] text-[18px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#B0ADBF] inline-block text-transparent bg-clip-text">
@@ -135,84 +137,88 @@ const Meditation = () => {
         </div>
         <Profile />
       </div>
-      <div className="w-[90%] mr-auto">
-        <div className="flex items-center justify-between">
-          <div className="lg:w-[68%] md:w-[68%] w-[100%] mb-3">
-            <InputGroup className="rounded-full border-white/30 px-4 py-5">
-              <InputGroupInput placeholder="search meditation sounds..." />
-              <InputGroupAddon>
-                <BsSearch />
-              </InputGroupAddon>
-            </InputGroup>
-          </div>
-          <div className="w-[30%]">
-            <Select
-              defaultValue="female"
-              onValueChange={(val) => setVoicePreference(val as "female" | "male")}
-            >
-              <SelectTrigger className="rounded-full border-white/30 py-5 px-4 mb-3">
-                <SelectValue placeholder="Voice Preference" />
-              </SelectTrigger>
-              <SelectContent className="bg-black/50 rounded-[34px] p-4 border-white/10 text-white hover:bg-black">
-                <SelectGroup>
-                  <SelectLabel>Select a voice</SelectLabel>
-                  <SelectItem value="female">Female</SelectItem>
-                  <SelectItem value="male">Male</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </div>
-      <div className="w-[90%] mr-auto">
-        <div className="flex justify-between flex-wrap">
-          <div className="flex flex-col w-[100%] lg:w-[49%] md:w-[49%] bg-black/20 rounded-[21px] p-8 border border-white/15">
-            {filteredMusic.map((info) => (
-              <div
-                key={info.id}
-                className="flex justify-between border-b border-white/15 py-4 cursor-pointer last:border-b-0"
-                onClick={() => handleSelectAudio(info)}
+      <div className="w-[90%] mx-auto">
+        <div className="lg:w-[90%] md:w-[90%] w-[100%] lg:mr-auto md:mr-auto mx-auto lg:ml-0 md:ml-0 mr-0">
+          <div className="flex items-center justify-between">
+            <div className="lg:w-[68%] md:w-[68%] w-[100%] mb-3">
+              <InputGroup className="rounded-full border-white/30 px-4 py-5">
+                <InputGroupInput placeholder="search meditation sounds..." />
+                <InputGroupAddon>
+                  <BsSearch />
+                </InputGroupAddon>
+              </InputGroup>
+            </div>
+            <div className="w-[30%]">
+              <Select
+                defaultValue="female"
+                onValueChange={(val) =>
+                  setVoicePreference(val as "female" | "male")
+                }
               >
-                <div className="w-[80%]">
-                  <h3 className="font-medium">{info.title}</h3>
-                  <p className="text-[#8695A0] text-[10px]">{info.description}</p>
-                </div>
-                <div className="flex items-center flex-col text-white">
-                  <p className="text-[10px]">{formatTime(info.duration)}</p>
-                  {selectedAudio?.id === info.id && isPlaying && (
-                    <FaPause className="text-2xl my-2 text-white" />
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="w-[100%] lg:w-[49%] md:w-[49%]">
-            <Image
-              src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1760789279/Rectangle_161124569_xpamar.png"
-              alt="Meditation visual"
-              width={200}
-              height={200}
-              className="w-[100%]"
-            />
+                <SelectTrigger className="rounded-full border-white/30 py-5 px-4 mb-3">
+                  <SelectValue placeholder="Voice Preference" />
+                </SelectTrigger>
+                <SelectContent className="bg-black/50 rounded-[34px] p-4 border-white/10 text-white hover:bg-black">
+                  <SelectGroup>
+                    <SelectLabel>Select a voice</SelectLabel>
+                    <SelectItem value="female">Female</SelectItem>
+                    <SelectItem value="male">Male</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
+        <div className="lg:w-[90%] md:w-[90%] w-[100%] lg:mr-auto md:mr-auto mx-auto lg:ml-0 md:ml-0 mr-0">
+          <div className="flex justify-between flex-wrap">
+            <div className="flex flex-col w-[100%] lg:w-[49%] md:w-[49%] bg-black/20 rounded-[21px] p-8 border border-white/15">
+              {filteredMusic.map((info) => (
+                <div
+                  key={info.id}
+                  className="flex justify-between border-b border-white/15 py-4 cursor-pointer last:border-b-0"
+                  onClick={() => handleSelectAudio(info)}
+                >
+                  <div className="w-[80%]">
+                    <h3 className="font-medium">{info.title}</h3>
+                    <p className="text-[#8695A0] text-[10px]">
+                      {info.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center flex-col text-white">
+                    <p className="text-[10px]">{formatTime(info.duration)}</p>
+                    {selectedAudio?.id === info.id && isPlaying && (
+                      <FaPause className="text-2xl my-2 text-white" />
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-        {selectedAudio ? (
-          <div className="mt-6">
-            <AudioPlayerCard
-              title={selectedAudio.title}
-              src={selectedAudio.source}
-              duration={selectedAudio.duration}
-            />
-          </div>) :  (<div className="mt-6">
-            <AudioPlayerCard
-              title=""
-              src=""
-              duration={0}
-            />
+            <div className="w-[100%] lg:w-[49%] md:w-[49%] hidden lg:inline-flex md:inline-flex">
+              <Image
+                src="https://res.cloudinary.com/dqw6qvymf/image/upload/v1760789279/Rectangle_161124569_xpamar.png"
+                alt="Meditation visual"
+                width={200}
+                height={200}
+                className="w-[100%]"
+              />
+            </div>
           </div>
-        )}
+
+          {selectedAudio ? (
+            <div className="mt-6">
+              <AudioPlayerCard
+                title={selectedAudio.title}
+                src={selectedAudio.source}
+                duration={selectedAudio.duration}
+              />
+            </div>
+          ) : (
+            <div className="mt-6">
+              <AudioPlayerCard title="" src="" duration={0} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -67,7 +67,7 @@ const AudioPlayerCard: React.FC<CustomAudioPlayerProps> = ({
   }, [volume]);
 
   return (
-    <div className="flex flex-col gap-2 bg-transparent text-white font-medium w-full my-8 mx-auto">
+    <div className="flex flex-col gap-2 bg-transparent text-white font-medium w-full my-8">
       <audio
         ref={audioRef}
         src={src}
@@ -75,8 +75,8 @@ const AudioPlayerCard: React.FC<CustomAudioPlayerProps> = ({
         onEnded={() => setIsPlaying(false)}
       />
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="flex items-center justify-between lg:flex-row md:flex-row flex-col ">
+        <div className="flex items-center justify-between lg:w-[15%] md:w-[24%] w-[100%] lg:order-1 md:order-1 order-2 mb-3">
           <button className="hover:text-gray-400 transition">
             <FaStepBackward size={20} />
           </button>
@@ -93,7 +93,7 @@ const AudioPlayerCard: React.FC<CustomAudioPlayerProps> = ({
           </button>
         </div>
 
-        <div className="flex flex-col flex-grow mx-6">
+        <div className="flex flex-col flex-grow mx-6  lg:w-[45%] md:w-[45%] w-[100%] lg:order-2 md:order-2 order-1 mb-3">
           <span className="text-sm mb-1 text-gray-300">{title}</span>
           <div className="flex items-center gap-3">
             <span className="text-xs text-gray-400">
@@ -119,7 +119,7 @@ const AudioPlayerCard: React.FC<CustomAudioPlayerProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between lg:w-[30%] md:w-[24%] w-[100%] mb-3 order-3">
           <button className="hover:text-gray-400 transition">
             <FaHeart size={16} />
           </button>

@@ -36,7 +36,7 @@ const MobileSidebar = () => {
   const bgClass = "bg-white/10";
 
   return (
-    <div className="relative w-[100%] z-30">
+    <div className="relative w-[100%] z-40">
       <div className="lg:hidden md:hidden items-center flex">
         <div className="flex items-center justify-between my-3 py-2 px-4 rounded-xl border border-white/10 w-[90%] mx-auto">
           <Hamburger
@@ -46,7 +46,7 @@ const MobileSidebar = () => {
             direction="left"
           />
           {isOpen && (
-            <div className="bg-darkBg absolute top-20 w-[70%] border rounded-[21px] border-white/20 p-6 z-50">
+            <div className="bg-darkBg absolute top-20 w-[70%] border rounded-[21px] border-white/20 p-6 z-50 overflow-y-scroll">
               <Link
                 href="/dashboard"
                 className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium ${isActive(
@@ -132,7 +132,7 @@ const MobileSidebar = () => {
           />
         </div>
         {scrolled && (
-          <div className="flex items-center w-[100%] justify-between  py-4 z-50 fixed top-0 left-0 px-6 bg-[#030A04]">
+          <div className="flex items-center w-[100%] justify-between z-50 py-4 fixed top-0 left-0 px-6 bg-[#030A04]">
             <Hamburger
               toggled={isOpen}
               toggle={setOpen}
@@ -140,7 +140,7 @@ const MobileSidebar = () => {
               direction="left"
             />
             {isOpen && (
-              <div className="bg-darkBg absolute top-24 w-[70%] border rounded-[21px] border-white/20 p-6">
+              <div className="bg-darkBg absolute top-24 w-[70%] border rounded-[21px] border-white/20 p-6 overflow-y-scroll">
                 <Link
                   href="/dashboard"
                   className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium" ${isActive(
