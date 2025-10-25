@@ -3,7 +3,7 @@ import { FaPlay } from "react-icons/fa";
 
 const DemoCard = () => {
   return (
-    <div className="bg-white/10 rounded-[21px] lg:p-8 md:p-6 p-4 backdrop-filter-blur w-[95%] mx-auto">
+    <div className="bg-white/10 rounded-[21px] lg:p-8 md:p-6 p-4 backdrop-filter-blur w-[100%]">
       <div className="bg-darkBg/80 rounded-[21px] lg:p-6 md:p-5 p-4 z-20 relative py-10">
         <div className="text-center">
           <h1 className="lg:text-[64px] md:text-[52px] text-[48px] font-[500] bg-gradient-to-b from-[#F5F4F7] via-[#F3F2F5] to-[#B0ADBF] inline-block text-transparent bg-clip-text leading-[50px] mb-4">

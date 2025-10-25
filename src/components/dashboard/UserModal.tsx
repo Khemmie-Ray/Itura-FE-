@@ -18,7 +18,6 @@ const UserModal = () => {
   const close = () => setIsOpen(false);
 
   return (
-    <div>
       <Dialog
         open={isOpen}
         onClose={close}
@@ -28,11 +27,10 @@ const UserModal = () => {
           className="fixed inset-0 bg-black/80 backdrop-blur-sm"
           aria-hidden="true"
         />
-        <DialogPanel className="relative z-50 p-6 rounded-2xl shadow-lg w-[50%] mx-auto">
+        <DialogPanel className="relative z-50 p-6 rounded-2xl shadow-lg lg:w-[50%] md:w-[50%] w-[95%] mx-auto">
           {/* {isNewUser ? <DemoCard close={close} /> : <SubscriptionModal close={close} />} */}
         </DialogPanel>
       </Dialog>
-    </div>
   );
 };
 

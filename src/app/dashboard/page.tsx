@@ -5,6 +5,7 @@ import MoodBoard from "@/components/dashboard/MoodBoard";
 import MobileAiCards from "@/components/dashboard/MobileAiCards";
 import Profile from "@/components/dashboard/Profile";
 import UserModal from "@/components/dashboard/UserModal";
+import ExpirationModal from "@/components/dashboard/ExpirationModal";
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
         <Profile />
       </div>
       <UserModal />
+      <ExpirationModal />
       <section className="lg:w-[80%] md:w-[80%] w-[90%] mx-auto">
         <h2 className="lg:text-[30px] md:text-[30px] text-[20px] text-center mt-24 lg:w-[70%] mx-auto md:w-[70%] w-[90%]">
           Hi <span className="font-instrumentSerif italic"> John</span>, Your
