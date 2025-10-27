@@ -18,10 +18,6 @@ const Login = () => {
   const { aegisAccount } = useAegis();
   // console.log(aegisAccount);
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
