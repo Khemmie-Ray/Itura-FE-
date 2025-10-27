@@ -12,7 +12,8 @@ import { toast } from "sonner";
 
 const Settings = () => {
   const bgColor = "bg-white/10 border-white/20";
-  const { userId } = useAuth();
+  const { userDetails } = useAuth();
+  const userId = userDetails.cavosUserId;
   const { data, isLoading, isError } = useGetUserDetails(userId);
   const updateUser = useUpdateUser();
 
