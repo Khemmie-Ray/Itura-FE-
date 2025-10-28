@@ -12,7 +12,6 @@ type AuthContextType = {
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   userDetails: any | null;
-  profileName: string | null;
 };
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -23,7 +22,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [userId, setUserId] = useState<string | null>(null)
-  const [profileName, setProfileName] = useState<string | null>(null)
   const { data } = useGetUserDetails(userId);
   const userDetails = data?.data || null;
 
@@ -93,7 +91,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, userDetails, profileName }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, userDetails }}>
       {children}
     </AuthContext.Provider>
   );
