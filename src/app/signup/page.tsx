@@ -218,7 +218,7 @@ const SignUp = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-gradient-to-r from-orange to-lightOrange rounded-xl text-white p-3 px-6 font-medium disabled:opacity-50 w-full"
+            className="bg-gradient-to-r from-orange to-lightOrange rounded-xl hover:from-orange/10 hover:to-lightOrange/10 hover:border-orange/40 hover:border hover:text-orange text-white p-4 my-4 px-6 font-medium disabled:opacity-50 lg:w-[40%] mx-auto md:w-[50%] w-[100%] transition-all duration-300"
           >
             {loading ? "Creating..." : "Register"}
           </button>
