@@ -1,14 +1,10 @@
 "use client";
 
 import React from "react";
-import { PiWaveformDuotone } from "react-icons/pi";
-import { MdClose } from "react-icons/md";
-import { GoDotFill } from "react-icons/go";
-import { TbSend2 } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
 
-export type MessageType = "text" | "image" | "music";
+export type MessageType = "text" | "image";
 
 export interface TextMessage {
   type: "text";
@@ -26,17 +22,7 @@ export interface ImageMessage {
   content: ImageMessageContent;
 }
 
-export interface MusicMessageContent {
-  src: string;
-  title?: string;
-}
-export interface MusicMessage {
-  type: "music";
-  sender: "user" | "ai";
-  content: MusicMessageContent;
-}
-
-export type ChatMessageShape = TextMessage | ImageMessage | MusicMessage;
+export type ChatMessageShape = TextMessage | ImageMessage;
 
 interface ChatResProps {
   messages: ChatMessageShape[];
@@ -116,37 +102,6 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
               </Link>
             </div>
           </div>
-        )}
-
-        {message.type === "music" && (
-          <section className="flex justify-between items-center flex-col lg:flex-row md:flex-row my-8">
-            <div
-              className={`${themeColor} w-[100%] lg:w-[32%] md:w-[32%] rounded-xl p-2 mb-3`}
-            >
-              <div
-                className={`flex rounded-xl justify-between items-center py-3 border px-3 ${themeColor}`}
-              >
-                <div className={`border rounded-lg  p-2 ${themeColor}`}>
-                  <PiWaveformDuotone className="text-lg animate-pulse" />
-                </div>
-                <p className="flex flex-col text-[12px] font-medium">
-                  {(message as MusicMessage).content.title ?? "Calming Music"}{" "}
-                  <span className="text-white/50 font-normal flex items-center">
-                    AI <GoDotFill /> {(message as MusicMessage).content.src.length < 20 ? "0.5 MB" : "2.1 MB"}
-                  </span>
-                </p>
-                <MdClose className="text-lg" />
-              </div>
-              <div className="flex justify-between items-center my-4 px-2">
-                <p className="text-[12px]">Press play, and enter a world of calmness</p>
-                <div className={`bg-[#391E83]/5 border rounded-full text-xl p-3 ml-2 ${themeColor}`}>
-                  <a href={(message as MusicMessage).content.src} target="_blank" rel="noreferrer">
-                    <TbSend2 className="text-xl" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
         )}
       </div>
 

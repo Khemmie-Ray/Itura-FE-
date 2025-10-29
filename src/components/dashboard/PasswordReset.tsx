@@ -45,11 +45,14 @@ const PasswordReset = () => {
     setResetLoading(true);
     try {
       const result = await aegisAccount.passwordReset(email);
-      if (result.ok) {
+      
+      if (result?.message) {
+        toast.success(result.message);
         setIsOpen(true);
       } else {
-        toast.error("An unexpected error occurred");
+        toast.error("Unexpected response format.");
       }
+      
     } catch (err: any) {
       toast.error("Failed to reset");
     } finally {

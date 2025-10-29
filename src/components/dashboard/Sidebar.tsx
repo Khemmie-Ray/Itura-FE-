@@ -48,6 +48,15 @@ const Sidebar = () => {
         Journal
       </Link>
       <Link
+        href="/dashboard/chat"
+        className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium ${isActive(
+          "/dashboard/chat"
+        )}`}
+      >
+        <LuMessageCircle className="mr-2 text-2xl" />
+        Chat
+      </Link>
+      <Link
         href="/dashboard/library"
         className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium ${isActive(
           "/dashboard/library"

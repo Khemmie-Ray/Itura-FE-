@@ -33,8 +33,6 @@ const MobileSidebar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const bgClass = "bg-white/10";
-
   return (
     <div className="relative w-[100%] z-40">
       <div className="lg:hidden md:hidden items-center flex">
@@ -154,6 +152,15 @@ const MobileSidebar = () => {
                   href="/dashboard/journal"
                   className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium" ${isActive(
                     "/dashboard/journal"
+                  )}`}
+                >
+                  <LuMessageCircle className="mr-2 text-2xl" />
+                  Journal
+                </Link>
+                <Link
+                  href="/dashboard/chat"
+                  className={`text-[13px] flex items-center py-4 mb-2 px-4 font-medium" ${isActive(
+                    "/dashboard/chat"
                   )}`}
                 >
                   <LuMessageCircle className="mr-2 text-2xl" />

@@ -95,8 +95,13 @@ const SignUp = () => {
 
     try {
       const result:any = await aegisAccount.signUp(email, password);
-      console.log("User registered:", result);
-      toast.success("Registration successful!");
+      if(result?.message) {
+        console.log("User registered:", result);
+        toast.success("Registration successful!");
+      } else {
+        toast.error("Registration failed!")
+      }
+     
       console.log("Aegis result:", result);
 
       const cavosUserId = result.user_Id;
